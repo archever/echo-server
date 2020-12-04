@@ -8,6 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		r.Header.Add("version", "v0.0.2")
 		body, _ := json.Marshal(r.Header)
 		w.Write(body)
 	})
